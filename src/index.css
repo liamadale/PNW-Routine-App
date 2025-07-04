@@ -1,0 +1,174 @@
+/* Create a new file: src/styles/global.css */
+
+:root {
+  --primary-color: #007aff;
+  --accent-color: #34c759;
+  --danger-color: #ff3b30;
+  --text-color: #1c1c1e;
+  --muted-color: #8e8e93;
+  --bg-color: #f2f2f7;
+  --border-radius: 0.75rem;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 56rem; /* equivalent to max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.heading-xl {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+/* Table Styles */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--border-radius);
+  background: white;
+  box-shadow: var(--shadow);
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #e5e5ea;
+}
+
+thead {
+  background-color: var(--bg-color);
+  font-weight: 600;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+button {
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0051c6;
+}
+
+button:disabled {
+  background-color: #d1d1d6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .table-wrapper {
+    font-size: 0.85rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 0.5rem;
+  }
+
+  td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: var(--muted-color);
+  }
+}
+
+
+/* Form Controls */
+.select {
+  width: 100%;
+}
+
+/* Buttons */
+.button-red {
+  background-color: #dc2626;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s;
+}
+.button-red:hover {
+  background-color: #b91c1c;
+}
+
+.button-blue {
+  background-color: #2563eb;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s;
+}
+.button-blue:hover {
+  background-color: #1d4ed8;
+}
+
+.button-green {
+  color: #16a34a;
+  text-decoration: underline;
+}
+.button-green:hover {
+  color: #15803d;
+}
+
+.button-icon {
+  color: #ef4444;
+  transition: color 0.2s;
+}
+.button-icon:hover {
+  color: #b91c1c;
+}
+
+.flex-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Drag handle */
+.drag-handle {
+  color: #6b7280;
+  cursor: grab;
+}
+.drag-handle:hover {
+  color: #374151;
+}
