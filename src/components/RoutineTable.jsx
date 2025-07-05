@@ -71,7 +71,7 @@ const RoutineTable = ({ plan, onReorder, onDelete, onClear, onPublish, onAdd }) 
               <thead className="table-head">
                 <tr>
                   <th>
-                    <ChevronUpDownIcon class="h-6 w-6 text-gray-500" />
+                    <ChevronUpDownIcon class="icon" />
                   </th>
                   <th>Exercise</th>
                   <th>Set/Reps</th>
@@ -97,15 +97,14 @@ const RoutineTable = ({ plan, onReorder, onDelete, onClear, onPublish, onAdd }) 
                       value={exercise}
                       onChange={handleExerciseChange}
                       placeholder="e.g. Goblet Squat"
-                      className="w-full"
                     />
                     {suggestions.length > 0 && (
-                      <ul className="absolute z-10 bg-white border border-gray-300 rounded shadow w-full mt-1 max-h-40 overflow-auto">
+                      <ul className="suggestions-list">
                         {suggestions.map((s, idx) => (
                           <li
                             key={idx}
                             onClick={() => handleSuggestionClick(s)}
-                            className="px-3 py-1 hover:bg-gray-200 cursor-pointer"
+                            className="suggestion-item"
                           >
                             {s}
                           </li>
@@ -129,9 +128,9 @@ const RoutineTable = ({ plan, onReorder, onDelete, onClear, onPublish, onAdd }) 
                         setSetsReps('');
                         setSuggestions([]);
                       }}
-                      className="add-btn flex items-center gap-1"
+                      className="add-btn"
                     >
-                      <PlusIcon className="h-5 w-5 text-green-600" /> Add
+                      <PlusIcon className="icon" /> Add
                     </button>
                   </td>
                 </tr>
@@ -170,25 +169,34 @@ function DraggableRow({ id, entry, index, onDelete }) {
     setNodeRef,
     transform,
     transition,
+    isDragging,
   } = useSortable({ id: id.toString() });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    cursor: 'grab',
+  };
+
+  const handleStyle = {
+    cursor: isDragging ? 'grabbing' : 'grab',
   };
 
   return (
     <tr ref={setNodeRef} style={style} className="draggable-row">
-      <td {...listeners} {...attributes} title="Drag to reorder" className="drag-handle">⠿</td>
+      <td         {...listeners}
+        {...attributes}
+        title="Drag to reorder"
+        className="drag-handle"
+        style={handleStyle}
+      >⠿</td>
       <td data-label="Exercise">{entry.exercise}</td>
       <td data-label="SetsReps">{entry.setsReps}</td>
-      <td className="text-center">
+      <td>
         <button
           onClick={() => onDelete(id)}
           className="delete-btn"
         >
-          <TrashIcon class="h-6 w-6 text-gray-500" />
+          <TrashIcon class="icon" />
         </button>
       </td>
     </tr>

@@ -1,4 +1,12 @@
-/* Create a new file: src/styles/global.css */
+/* Global Styles */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+}
 
 :root {
   --primary-color: #007aff;
@@ -14,18 +22,17 @@
 /* Layout Utilities */
 .container {
   max-width: 56rem; /* equivalent to max-w-4xl */
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
+
 .heading-xl {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 600;
   margin-bottom: 1.5rem;
+  color: var(--text-color);
 }
 
 /* Table Styles */
@@ -171,4 +178,137 @@ button:disabled {
 }
 .drag-handle:hover {
   color: #374151;
+}
+
+
+.routine-container {
+  margin-top: 1rem;
+}
+
+.routine-heading {
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.add-btn {
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.add-btn .icon {
+  color: white;
+}
+.add-btn:hover {
+  background-color: #28a745;
+}
+
+.clear-btn {
+  background-color: var(--danger-color);
+}
+.clear-btn:hover {
+  background-color: #c62828;
+}
+
+.publish-btn {
+  background-color: var(--primary-color);
+}
+
+.delete-btn {
+  background: transparent;
+  padding: 0.25rem;
+}
+.delete-btn:hover {
+  color: var(--danger-color);
+}
+.delete-btn .icon {
+  color: var(--muted-color);
+}
+
+.draggable-row td {
+  vertical-align: middle;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--muted-color);
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.suggestions-list {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  border: 1px solid #e5e5ea;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  margin-top: 0.25rem;
+  max-height: 10rem;
+  overflow: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.suggestion-item {
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f1f1f3;
+}
+
+.add-row td:first-child {
+  text-align: center;
+  font-weight: bold;
+}
+.add-row input {
+  width: 100%;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+input {
+  border: 1px solid #d1d1d6;
+  border-radius: var(--border-radius);
+  padding: 0.375rem 0.5rem;
+  font-size: 0.95rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.25);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+tbody tr {
+  animation: fadeInUp 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #f9f9fb;
 }
